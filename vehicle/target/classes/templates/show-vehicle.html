@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="commons/all-head-links :: head">
+</head>
+
+<body>
+<div th:replace="my-navbar :: div"></div>
+<div class="container">
+
+    <div class="alert alert-success w-75 mx-auto mt-3" role="alert" th:if="${successMessage}" th:text="${successMessage}"></div>
+
+    <div class="listing mt-5">
+        <h1 class="listing-title" th:text="${vehicle.vehicleName}"></h1>
+        <img th:src="${vehicle.imgUrl}" class="listing-img" alt="vehicle image">
+
+        <div class="listing-desc mt-3 fs-6 w-75">
+            <p th:text="${vehicle.description}"></p>
+        </div>
+        <p>
+            Price: <span th:text="${vehicle.price}" class="fw-bold fst-italic"></span> per day
+        </p>
+
+        <div class="buttons d-flex gap-5">
+            <a class="btn btn-sm btn-primary edit-btn" th:href="@{/vehicles/edit(id=${vehicle.id})}"><i class="fa fa-pen"></i> Edit</a>
+            <a class="btn btn-sm btn-outline-danger" th:href="@{/vehicles/delete(id=${vehicle.id})}"><i class="fa fa-trash"></i> Delete</a>
+        </div>
+    </div>
+
+</div>
+<br><br><br>
+
+<div th:replace="commons/all-js-links :: div"></div>
+
+</body>
+
+</html>
