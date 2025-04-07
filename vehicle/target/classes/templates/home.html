@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Verdana', Segoe UI, Tahoma, Geneva, sans-serif;
+        }
+
+        .bg-image {
+            background: url('https://images.pexels.com/photos/88630/pexels-photo-88630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to top */
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .title {
+             font-size: 3rem;
+             color: black;
+             margin-bottom: 100px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 30px; /* space between buttons */
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-image"></div>
+<div class="overlay"></div>
+
+<div class="container">
+    <div class="title">Welcome to Vehicle Rental Portal</div>
+    <div class="button-group"><br><br><br><br>
+        <a href="/admin-login"><button class="btn">Admin</button></a>
+        <a href="/login"><button class="btn">User</button></a>
+    </div>
+</div>
+
+</body>
+</html>

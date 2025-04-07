@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="commons/all-head-links :: head">
+
+</head>
+<body>
+
+<style>
+    .card {
+      border: none;
+      border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #333;
+    }
+
+    .price-per-hour {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #111;
+      margin-bottom: 0.3rem;
+    }
+
+    .price-excl-fee {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    .listing-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .listing-link:hover {
+      text-decoration: none;
+    }
+
+    .col {
+      display: flex;
+      justify-content: center;
+    }
+</style>
+
+<div th:replace="navbar :: div"></div>
+<div class="container">
+    <!-- Flash message section -->
+    <div class="alert alert-danger w-70 mx-auto mt-3" role="alert" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+    <br> <br>
+    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-2 row-cols-1 mt-6">
+
+        <div class="col my-2 p-2" th:each="vehicle : ${allVehiclesToUser}">
+            <a th:href="@{/vehiclesToUser/view/{id}(id=${vehicle.id})}" class="listing-link">
+                <div class="card mt-3">
+                    <img th:src="${vehicle.imgUrl}" class="card-img-top" alt="vehicle image">
+                    <div class="card-body mt-2">
+                        <h5 class="card-title" th:text="${vehicle.vehicleName}"></h5>
+                        <p class="card-title-d" th:text="${vehicle.description}"></p>
+                        <p class="card-text">
+                            <span th:text="${vehicle.price}" class="fw-bold fst-italic"></span>₹/per day
+                        </p>
+
+                    </div>
+
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+<br><br>
+
+<div th:replace="commons/all-js-links :: div"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="commons/all-head-links :: head">
+</head>
+
+<body>
+<div th:replace="my-navbar :: div"></div>
+<div class="container">
+
+    <div class="alert alert-success w-75 mx-auto mt-3" role="alert" th:if="${successMessage}" th:text="${successMessage}"></div>
+
+    <div class="listing mt-5">
+        <h1 class="listing-title" th:text="${vehicle.vehicleName}"></h1>
+        <img th:src="${vehicle.imgUrl}" class="listing-img" alt="vehicle image">
+
+        <div class="listing-desc mt-3 fs-6 w-75">
+            <p th:text="${vehicle.description}"></p>
+        </div>
+        <p>
+            Price: <span th:text="${vehicle.price}" class="fw-bold fst-italic"></span> per day
+        </p>
+
+        <p>
+            Status:
+            <span th:text="${vehicle.status}"
+                  th:classappend="${vehicle.status == 'Available'} ? 'text-success' : 'text-danger'"
+                  class="fw-semibold"></span>
+        </p>
+
+
+    </div>
+
+    <a th:href="@{/getPayment}" class="btn btn-primary mt-3 save-btn">
+        <i class="fa-regular fa-bookmark"></i>
+        <span th:text="${btn_name} ?: 'Book Now'"></span>
+    </a>
+
+</div>
+<br><br><br>
+
+<div th:replace="commons/all-js-links :: div"></div>
+
+</body>
+
+</html>
